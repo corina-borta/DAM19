@@ -1,4 +1,4 @@
-package org.scrum.angajat;
+package org.scrum.Angajat;
 
 
 import lombok.Data;
@@ -6,15 +6,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class angajat {
+public class Angajat {
 
     private Integer IDAngajat;
     private String NumeAngajat;
     private Integer Telefon;
     private String Email;
-    private Boolean RolAngajat;
+    private String RolAngajat;
 
-    public angajat(Integer IDAngajat, String numeAngajat, String email, Integer telefon, Boolean rolAngajat) {
+    public Angajat(Integer IDAngajat, String numeAngajat, Integer telefon, String email,  String rolAngajat) {
         this.IDAngajat = IDAngajat;
         NumeAngajat = numeAngajat;
         Email = email;
@@ -54,11 +54,11 @@ public class angajat {
         Email = email;
     }
 
-    public Boolean getRolAngajat() {
+    public String getRolAngajat() {
         return RolAngajat;
     }
 
-    public void setRolAngajat(Boolean rolAngajat) {
+    public void setRolAngajat(String rolAngajat) {
         RolAngajat = rolAngajat;
     }
 }

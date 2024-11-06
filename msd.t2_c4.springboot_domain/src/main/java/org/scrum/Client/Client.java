@@ -1,4 +1,4 @@
-package org.scrum.client;
+package org.scrum.Client;
 
 
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class client {
+public class Client {
 
    private Integer IDClient;
    private String NumeClient;
@@ -14,7 +14,7 @@ public class client {
    private String Email;
 
 
-   public client(Integer idClient, String numeClient, String telefon, String email) {
+   public Client(Integer idClient, String numeClient, String telefon, String email) {
         this.IDClient = IDClient;
         this.NumeClient = NumeClient;
         this.Telefon = Telefon;
@@ -52,4 +52,5 @@ public class client {
     public void setEmail(String email) {
         Email = email;
     }
+
 }
