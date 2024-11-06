@@ -14,6 +14,7 @@ import java.util.Date;
     private Integer idComanda;
     private Integer numarMasa;
     private Date dataComenzii;
+    // in loc de boolean a creat enum
     private StatusComanda status;
     private MetodaPlata metodaPlata;
     private StatusPlata statusPlata;
