@@ -8,9 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /*
  * COMPUTATION Business Service Tests
@@ -26,20 +26,20 @@ public class Test2Angajat {
   // private static Logger logger = Logger.getLogger(Test1_Client.class.getName());
   @Test
   public void testAngajatConstructor() {
-      Angajat angajat = new Angajat(1, "Ion Popescu", 0745123456, "ion.popescu@example.com", "Chelner");
+      Angajat angajat = new Angajat(1, "Ion Popescu", "0745123456", "ion.popescu@example.com", "Chelner");
 
-      assertEquals(Optional.of(1), angajat.getIDAngajat());
+      assertEquals(Integer.valueOf(1), angajat.getIDAngajat());
       assertEquals("Ion Popescu", angajat.getNumeAngajat());
       assertEquals("0745123456", angajat.getTelefon());
       assertEquals("ion.popescu@example.com", angajat.getEmail());
-      assertEquals("Bucatar", angajat.getRolAngajat());
+      assertEquals("Chelner", angajat.getRolAngajat());
   }
 
     @Test
     public void testAngajatSetterMethods() {
         Angajat angajat = new Angajat();
         angajat.setNumeAngajat("Vasile Ionescu");
-        angajat.setTelefon(0745321456);
+        angajat.setTelefon("0745321456");
 
         assertEquals("Vasile Ionescu", angajat.getNumeAngajat());
         assertEquals("0745321456", angajat.getTelefon());

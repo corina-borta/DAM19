@@ -1,26 +1,38 @@
-package org.scrum.domain.comenzi;
+package org.scrum.domain;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 @Data // Creează automat getter, setter, toString, equals și hashCode
     @NoArgsConstructor // Creează un constructor fără parametri
-    // Specifică faptul că această clasă reprezintă o entitate în baza de date
-    public class comenzi {
-
+   @Entity // Specifică faptul că această clasă reprezintă o entitate în baza de date
+    public class Comenzi {
+    @EqualsAndHashCode.Include
+    @Id  @NotNull
+    @GeneratedValue
     private Integer idComanda;
-    private Integer numarMasa;
+    private String numarMasa;
     private Date dataComenzii;
-    // in loc de boolean a creat enum
     private StatusComanda status;
     private MetodaPlata metodaPlata;
     private StatusPlata statusPlata;
     private BigDecimal totalComanda;
 
-    public comenzi(Integer idComanda, Integer numarMasa, Date dataComenzii, StatusComanda status,
+    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comanda_Meniu> cmd_meniuList;
+
+    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Preluare_Comenzi> preluariList;
+
+    public Comenzi(Integer idComanda, String numarMasa, Date dataComenzii, StatusComanda status,
                    MetodaPlata metodaPlata, StatusPlata statusPlata, BigDecimal totalComanda) {
         this.idComanda = idComanda;
         this.numarMasa = numarMasa;
@@ -31,23 +43,6 @@ import java.util.Date;
         this.totalComanda = totalComanda;
     }
 
-    public enum StatusComanda {
-        IN_ASTEPTARE,
-        PROCESATA,
-        LIVRATA
-    }
-
-    public enum MetodaPlata {
-        CASH,
-        CARD,
-        ONLINE
-    }
-
-    public enum StatusPlata {
-        NEPLATITA,
-        PLATITA,
-        ANULATA
-    }
     }
 
 
