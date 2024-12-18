@@ -6,6 +6,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.scrum.restaurant.management.Preluare_Comenzi;
+import org.scrum.restaurant.management.Rezervari;
+import org.scrum.restaurant.meniu.ModificareMeniu;
 
 import java.util.List;
 

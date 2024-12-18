@@ -1,9 +1,9 @@
-package org.scrum.domain.services;
+package org.scrum.restaurant;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.scrum.domain.Angajat;
+import org.scrum.restaurant.persoane.Angajat;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;

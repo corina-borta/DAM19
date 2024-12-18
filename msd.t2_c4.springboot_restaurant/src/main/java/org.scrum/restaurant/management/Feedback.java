@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.scrum.restaurant.persoane.Client;
 
 @Data
 @NoArgsConstructor
@@ -39,8 +40,6 @@ public class Feedback {
         this.idFeedback = idFeedback;
         this.textFeedback = textFeedback;
         this.rating = rating;
-        this.tipFeedback = tipFeedback;
-        this.nivelSatisfactie = nivelSatisfactie;
     }
 
 

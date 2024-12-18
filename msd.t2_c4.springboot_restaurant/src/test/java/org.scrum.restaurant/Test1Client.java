@@ -1,9 +1,9 @@
-package org.scrum.domain.services;
+package org.scrum.restaurant;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.scrum.Client.Client;
+import org.scrum.restaurant.persoane.Client;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
@@ -28,7 +28,7 @@ public class Test1Client {
    public void testClientConstructor() {
        Client client = new Client(1, "Maria Ionescu", "0746123456", "maria.ionescu@example.com");
 
-       assertEquals(Optional.of(1), client.getIDClient());
+       assertEquals(Optional.of(1), client.getIdClient());
        assertEquals("Maria Ionescu", client.getNumeClient());
        assertEquals("0746123456", client.getTelefon());
        assertEquals("maria.ionescu@example.com", client.getEmail());
@@ -38,7 +38,7 @@ public class Test1Client {
     public void testClientSetterMethods() {
         Client client = new Client();
         client.setNumeClient("Ion Popescu");
-        client.setTelefon(0756123456);
+        client.setTelefon("0756123456");
         client.setEmail("ion.popescu@example.com");
 
         assertEquals("Ion Popescu", client.getNumeClient());

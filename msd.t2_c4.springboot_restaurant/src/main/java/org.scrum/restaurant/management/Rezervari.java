@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.scrum.restaurant.persoane.Angajat;
+import org.scrum.restaurant.persoane.Client;
 
 import java.util.Date;
 

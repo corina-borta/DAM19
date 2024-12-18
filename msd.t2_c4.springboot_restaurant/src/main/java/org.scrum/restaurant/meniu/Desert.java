@@ -1,31 +1,17 @@
 package org.scrum.restaurant.meniu;
 
-
 import jakarta.persistence.Entity;
-import jakarta.validation.constraints.Min;
-import lombok.Data;
+import org.scrum.restaurant.meniu.Preparat;
 
 @Entity
-public class Desert extends Meniu {
+public class Desert extends Preparat {
 
-    private String nume;
-    private String ingrediente;
-    @Min(1)// Ingrediente
-    private double pret;
-
-    public Desert(int idMeniu, String descriere,  String nume, String ingrediente, double pret) {
-        super(idMeniu, descriere);
-        this.nume = nume;
-        this.ingrediente = ingrediente;
-        this.pret = pret;
+    public Desert(String nume, String ingrediente, double pret) {
+        super(nume, ingrediente, pret);
     }
 
     @Override
     public String toString() {
-        return "desert{" +
-                ", nume='" + nume + '\'' +
-                ", ingrediente='" + ingrediente + '\'' +
-                ", pret=" + pret +
-                '}';
+        return "Desert{" + super.toString() + '}';
     }
 }

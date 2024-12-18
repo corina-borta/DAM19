@@ -1,34 +1,35 @@
 package org.scrum.restaurant.meniu;
+
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.scrum.domain.Comanda_Meniu;
-import org.scrum.domain.Comenzi;
-import org.scrum.domain.ModificareMeniu;
+import org.scrum.restaurant.management.Comanda_Meniu;
+import org.scrum.restaurant.meniu.Preparat;
 
 import java.util.List;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Meniu {
     @EqualsAndHashCode.Include
-    @Id @Min(1)
-    @GeneratedValue
-    private int idMeniu;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idMeniu;
+
     private String descriere;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Preparat> preparateList;
+
     @OneToMany(mappedBy = "meniu", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comanda_Meniu> cmd_meniuList;
+    private List<ModificareMeniu> modificariMeniu;
 
-    @OneToMany(mappedBy = "meniu", cascade = CascadeType.ALL)
-    private List<ModificareMeniu> modificariList;
+    @OneToMany(mappedBy = "meniu", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comanda_Meniu> comenziMeniu;
 
-    // Constructor
-    public Meniu(int idMeniu, String descriere) {
-        this.idMeniu = idMeniu;
+    public Meniu(String descriere, List<Preparat> preparateList) {
         this.descriere = descriere;
+        this.preparateList = preparateList;
     }
 
     @Override
@@ -36,7 +37,9 @@ public class Meniu {
         return "Meniu{" +
                 "idMeniu=" + idMeniu +
                 ", descriere='" + descriere + '\'' +
+                ", preparateList=" + preparateList +
+                ", modificariMeniu=" + modificariMeniu +
+                ", comenziMeniu=" + comenziMeniu +
                 '}';
     }
-
 }

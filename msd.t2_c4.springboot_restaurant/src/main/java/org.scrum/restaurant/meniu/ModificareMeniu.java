@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.scrum.meniu.Meniu;
+import org.scrum.restaurant.persoane.Angajat;
 
 import java.time.LocalDateTime;
 @Entity
