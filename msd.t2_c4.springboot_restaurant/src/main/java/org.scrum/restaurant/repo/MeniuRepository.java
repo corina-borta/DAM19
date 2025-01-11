@@ -12,7 +12,7 @@ public interface MeniuRepository extends JpaRepository<Meniu, Long> {
     List<Meniu> findByDescriereContainingIgnoreCase(String descriere);
 
     // Găsește meniuri care conțin un anumit preparat
-    List<Meniu> findByPreparateList_Id(Long idPreparat);
+    List<Meniu> findByPreparateList_IdPreparat(Long idPreparat);
 
     // Găsește toate meniurile care au cel puțin o comandă
     List<Meniu> findByComenziMeniuIsNotNull();

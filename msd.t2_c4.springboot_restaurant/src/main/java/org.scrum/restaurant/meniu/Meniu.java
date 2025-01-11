@@ -21,10 +21,10 @@ public class Meniu {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Preparat> preparateList;
 
-    @OneToMany(mappedBy = "meniu", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ModificareMeniu> modificariMeniu;
 
-    @OneToMany(mappedBy = "meniu", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comanda_Meniu> comenziMeniu;
 
     public Meniu(String descriere, List<Preparat> preparateList) {

@@ -1,29 +1,33 @@
 package org.scrum.restaurant.persoane;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import org.scrum.restaurant.management.Feedback;
 import org.scrum.restaurant.management.Preluare_Comenzi;
 import org.scrum.restaurant.management.Rezervari;
 
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "clienti") // Specificăm numele tabelului în baza de date
 public class Client {
-@EqualsAndHashCode.Include
-@Id @Min(1) @NotNull @GeneratedValue
-   private Integer idClient;
-   private String NumeClient;
-   private  String Telefon;
-   private String Email;
+    @EqualsAndHashCode.Include
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idClient;
+
+    private String numeClient;
+    private String telefon;
+    private String email;
+
+    @Column(nullable = false)
+    private boolean activ; // Adăugăm atributul activ pentru clienți
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Feedback> feedbackList;
@@ -34,43 +38,67 @@ public class Client {
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Preluare_Comenzi> preluariList;
 
-   public Client(Integer idClient, String numeClient, String telefon, String email) {
-        this.idClient = idClient;
-        this.NumeClient = NumeClient;
-        this.Telefon = Telefon;
-        this.Email = Email;
+    // Constructor suplimentar pentru inițializare mai ușoară
+    public Client(String numeClient, String telefon, String email, boolean activ) {
+        this.numeClient = numeClient;
+        this.telefon = telefon;
+        this.email = email;
+        this.activ = activ;
     }
 
-    public @Min(1) @NotNull Integer getIdClient() {
+    // Constructor complet cu idClient
+    public Client(Integer idClient, String numeClient, String telefon, String email, boolean activ) {
+        this.idClient = idClient;
+        this.numeClient = numeClient;
+        this.telefon = telefon;
+        this.email = email;
+        this.activ = activ;
+    }
+
+    // Metode de acces (getters și setters) pentru compatibilitate manuală
+    public Integer getIdClient() {
         return idClient;
     }
 
-    public void setIdClient(@Min(1) @NotNull Integer idClient) {
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
+    }
+
+    // Metodă `setId` pentru compatibilitate cu testele și controller-ul
+    public void setId(Integer idClient) {
         this.idClient = idClient;
     }
 
     public String getNumeClient() {
-        return NumeClient;
+        return numeClient;
     }
 
     public void setNumeClient(String numeClient) {
-        NumeClient = numeClient;
+        this.numeClient = numeClient;
     }
 
     public String getTelefon() {
-        return Telefon;
+        return telefon;
     }
 
     public void setTelefon(String telefon) {
-        Telefon = telefon;
+        this.telefon = telefon;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
+    }
+
+    public boolean isActiv() {
+        return activ;
+    }
+
+    public void setActiv(boolean activ) {
+        this.activ = activ;
     }
 
     public List<Feedback> getFeedbackList() {
