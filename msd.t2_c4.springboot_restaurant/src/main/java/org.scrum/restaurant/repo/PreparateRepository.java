@@ -1,6 +1,8 @@
 package org.scrum.restaurant.repo;
 
+import org.scrum.restaurant.meniu.Bauturi;
 import org.scrum.restaurant.meniu.Preparat;
+import org.scrum.restaurant.meniu.TipPreparat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +11,13 @@ import java.util.List;
 @Repository
 public interface PreparateRepository extends JpaRepository<Preparat, Long> {
 
+     List<Preparat> findByPretGreaterThanEqual(double pret);
+     List<Preparat> findByTipPreparat(TipPreparat tipPreparat);
+     List<Preparat> findByIngredienteContaining(String ingrediente);
+     List<Preparat> findByMeniuIdMeniu(Long idMeniu);// gasirea preparatului care apartine unui anumit meniu
      List<Preparat> findByNume(String nume);
 
-    // Găsește preparate cu preț mai mic decât o anumită valoare
-    List<Preparat> findByPretLessThan(Double pret);
+     List<Bauturi> findByVolum(double volum);
+
+     List<Bauturi> findByAlcoolic(boolean alcoolic);
 }

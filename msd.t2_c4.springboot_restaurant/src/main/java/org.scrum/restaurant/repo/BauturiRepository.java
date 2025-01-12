@@ -11,7 +11,4 @@ public interface BauturiRepository extends JpaRepository<Bauturi, Long> {
     List<Bauturi> findByVolum(double volum);
 
     List<Bauturi> findByAlcoolic(boolean alcoolic);
-
-    // Poți adăuga și un method customizat, dacă e nevoie
-    List<Bauturi> findByNumeContaining(String nume);
 }

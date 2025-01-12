@@ -25,7 +25,6 @@ public class Comanda_Meniu {
     private Meniu meniu;
 
 
-
     public Comanda_Meniu(Integer id, Comenzi comanda, Meniu meniu, Integer cantitate) {
         this.id = id;
         this.comanda = comanda;
