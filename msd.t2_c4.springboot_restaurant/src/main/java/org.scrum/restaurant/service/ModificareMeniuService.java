@@ -2,31 +2,48 @@ package org.scrum.restaurant.service;
 
 import org.scrum.restaurant.meniu.ModificareMeniu;
 import org.scrum.restaurant.repo.ModificareMeniuRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ModificareMeniuService {
-    private final ModificareMeniuRepository modificareMeniuRepository;
 
-    public ModificareMeniuService(ModificareMeniuRepository modificareMeniuRepository) {
-        this.modificareMeniuRepository = modificareMeniuRepository;
+    @Autowired
+    private ModificareMeniuRepository modificareMeniuRepository;
+
+    // Salvarea unei modificări de meniu
+    public ModificareMeniu saveModificareMeniu(ModificareMeniu modificareMeniu) {
+        if (modificareMeniu.getDescriereModificare() == null || modificareMeniu.getDescriereModificare().isEmpty()) {
+            throw new IllegalStateException("Descrierea modificării nu poate fi goală.");
+        }
+        return modificareMeniuRepository.save(modificareMeniu);
     }
 
-    public List<ModificareMeniu> getAllModificari() {
+    // Obținerea tuturor modificărilor de meniu
+    public List<ModificareMeniu> getAllModificariMeniu() {
         return modificareMeniuRepository.findAll();
     }
 
-    public List<ModificareMeniu> getModificariByMeniu(Long idMeniu) {
-        return modificareMeniuRepository.findByMeniu_IdMeniu(idMeniu);
+    // Obținerea modificărilor de meniu după ID-ul meniului
+    public List<ModificareMeniu> getModificariMeniuById(Long idMeniu) {
+        return modificareMeniuRepository.findByMeniu_Id(idMeniu);
     }
 
-    public ModificareMeniu saveModificare(ModificareMeniu modificare) {
-        return modificareMeniuRepository.save(modificare);
+    // Obținerea modificărilor de meniu după ID-ul angajatului
+    public List<ModificareMeniu> getModificariMeniuByAngajatId(Integer idAngajat) {
+        return modificareMeniuRepository.findByidAngajat(idAngajat);
     }
 
-    public void deleteModificare(Long id) {
-        modificareMeniuRepository.deleteById(id);
+    // Ștergerea unei modificări de meniu după ID
+    public void deleteModificareMeniuById(Long id) {
+        if (modificareMeniuRepository.existsById(id)) {
+            modificareMeniuRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Modificarea de meniu cu ID-ul " + id + " nu a fost găsită.");
+        }
     }
+
 }
