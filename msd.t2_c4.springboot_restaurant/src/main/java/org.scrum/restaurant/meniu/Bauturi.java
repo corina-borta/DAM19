@@ -32,7 +32,7 @@ public class Bauturi extends Preparat {
         this.alcoolic = alcoolic;
     }
 
-    public Bauturi(Long idPreparat, String nume, String ingrediente, double pret, TipPreparat tipPreparat, double volum, boolean alcoolic) {
+    public Bauturi(Integer idPreparat, String nume, String ingrediente, double pret, TipPreparat tipPreparat, double volum, boolean alcoolic) {
         super(idPreparat, nume, ingrediente, pret, tipPreparat);
         this.volum = volum;
         this.alcoolic = alcoolic;

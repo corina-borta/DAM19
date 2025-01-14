@@ -7,16 +7,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MeniuRepository extends JpaRepository<Meniu, Long> {
+public interface MeniuRepository extends JpaRepository<Meniu, Integer> {
 
     List<Meniu> findByNumeMeniu(String numeMeniu);
 
-<<<<<<< HEAD
     // Găsește meniuri care conțin un anumit preparat
-    List<Meniu> findByPreparateList_IdPreparat(Long idPreparat);
+    List<Meniu> findByPreparateList_IdPreparat(Integer idPreparat);
 
-    // Găsește toate meniurile care au cel puțin o comandă
-    List<Meniu> findByComenziMeniuIsNotNull();
-=======
->>>>>>> origin/corina
+
 }

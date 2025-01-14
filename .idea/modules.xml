@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/msd.t2_c4.springboot_restaurant.iml" filepath="$PROJECT_DIR$/.idea/msd.t2_c4.springboot_restaurant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DAM19.iml" filepath="$PROJECT_DIR$/.idea/DAM19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/msd.t2_c4.springboot_restaurant/msd.t2_c4.springboot_restaurant.iml" filepath="$PROJECT_DIR$/msd.t2_c4.springboot_restaurant/msd.t2_c4.springboot_restaurant.iml" />
     </modules>
   </component>
 </project>

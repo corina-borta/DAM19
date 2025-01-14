@@ -20,7 +20,7 @@ public class PreparatServiceTest {
 
     @Test
     public void testFindAllPreparate() {
-        assertFalse(preparatService.findAllPreparate().isEmpty());
+        assertFalse(preparatService.getAllPreparate().isEmpty());
 
         ArrayList<String> list = new ArrayList<>();
         list.add("Element1");

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Preparat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPreparat;
+    private Integer idPreparat;
     @NotNull
     private String nume;
     @NotNull
@@ -28,7 +28,7 @@ public class Preparat {
     @JoinColumn(name = "meniu")
     private Meniu meniu;
 
-    public Preparat(Long idPreparat, String nume, String ingrediente, double pret, TipPreparat tipPreparat) {
+    public Preparat(Integer idPreparat, String nume, String ingrediente, double pret, TipPreparat tipPreparat) {
         this.idPreparat = idPreparat;
         this.nume = nume;
         this.ingrediente = ingrediente;
@@ -48,11 +48,11 @@ public class Preparat {
                 '}';
     }
 
-    public Long getIdPreparat() {
+    public Integer getIdPreparat() {
         return idPreparat;
     }
 
-    public void setIdPreparat(Long idPreparat) {
+    public void setIdPreparat(Integer idPreparat) {
         this.idPreparat = idPreparat;
     }
 

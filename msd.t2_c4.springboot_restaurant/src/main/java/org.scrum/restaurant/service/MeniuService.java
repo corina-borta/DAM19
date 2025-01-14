@@ -39,7 +39,7 @@ public class MeniuService {
         return meniuRepository.findAll();
     }
 
-    public Meniu getMeniuById(Long idMeniu) {
+    public Meniu getMeniuById(Integer idMeniu) {
         return meniuRepository.findById(idMeniu).orElse(null);
     }
 
@@ -53,11 +53,11 @@ public class MeniuService {
         return meniuRepository.save(meniu);
     }
 
-    public void deleteMeniu(Long idMeniu) {
+    public void deleteMeniu(Integer idMeniu) {
         meniuRepository.deleteById(idMeniu);
     }
 
-    public Meniu adaugaPreparatInMeniu(Long idMeniu, Preparat preparat, Angajat angajat) {
+    public Meniu adaugaPreparatInMeniu(Integer idMeniu, Preparat preparat, Angajat angajat) {
         Optional<Meniu> meniuOptional = meniuRepository.findById(idMeniu);
 
         if (meniuOptional.isPresent()) {
@@ -73,7 +73,7 @@ public class MeniuService {
             return null; // Returnează null dacă meniu nu a fost găsit
         }
     }
-    public void removePreparatFromMeniu(Long idMeniu, Long idPreparat, Angajat angajat) {
+    public void removePreparatFromMeniu(Integer idMeniu, Integer idPreparat, Angajat angajat) {
         Meniu meniu = getMeniuById(idMeniu);
         Preparat preparat = meniu.getPreparate().stream()
                 .filter(p -> p.getIdPreparat().equals(idPreparat))
@@ -86,7 +86,7 @@ public class MeniuService {
         }
 
     }
-    public Meniu updateMeniu(Long idMeniu, String numeMeniu, List<Preparat> preparate, Angajat angajat) {
+    public Meniu updateMeniu(Integer idMeniu, String numeMeniu, List<Preparat> preparate, Angajat angajat) {
         Optional<Meniu> meniuOptional = meniuRepository.findById(idMeniu);
 
         if (meniuOptional.isPresent()) {

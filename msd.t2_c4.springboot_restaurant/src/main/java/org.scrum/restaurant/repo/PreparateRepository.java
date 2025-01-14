@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PreparateRepository extends JpaRepository<Preparat, Long> {
+public interface PreparateRepository extends JpaRepository<Preparat, Integer> {
 
      List<Preparat> findByPretGreaterThanEqual(double pret);
      List<Preparat> findByTipPreparat(TipPreparat tipPreparat);
      List<Preparat> findByIngredienteContaining(String ingrediente);
-     List<Preparat> findByMeniuIdMeniu(Long idMeniu);// gasirea preparatului care apartine unui anumit meniu
+     List<Preparat> findByMeniuIdMeniu(Integer idMeniu);// gasirea preparatului care apartine unui anumit meniu
      List<Preparat> findByNume(String nume);
 
      List<Bauturi> findByVolum(double volum);

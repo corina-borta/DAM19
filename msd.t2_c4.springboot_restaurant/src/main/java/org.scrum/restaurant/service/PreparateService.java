@@ -44,20 +44,20 @@ public class PreparateService {
         return preparatRepository.findByPretGreaterThanEqual(pret);
     }
 
-    public List<Preparat> getByMeniu(Long idMeniu) {
+    public List<Preparat> getByMeniu(Integer idMeniu) {
         return preparatRepository.findByMeniuIdMeniu(idMeniu);
     }
 
 
     // Metodă pentru a șterge un preparat după ID
-    public void deletePreparatByidPreparat(Long idPreparat) {
+    public void deletePreparatByidPreparat(Integer idPreparat) {
         if (preparatRepository.existsById(idPreparat)) {
             preparatRepository.deleteById(idPreparat); // Ștergem preparatul din baza de date
         } else {
             throw new RuntimeException("Preparat cu id-ul " + idPreparat + " nu a fost găsit!"); // Aruncăm excepție dacă nu există
         }
     }
-    public Preparat updatePreparat(Long idPreparat, Preparat preparat) {
+    public Preparat updatePreparat(Integer idPreparat, Preparat preparat) {
         if (preparatRepository.existsById(idPreparat)) {
             preparat.setIdPreparat(idPreparat); // asigură-te că ID-ul rămâne același
             return preparatRepository.save(preparat);
@@ -68,5 +68,6 @@ public class PreparateService {
     public List<Preparat> getPreparateByTip(TipPreparat tipPreparat) {
         return preparatRepository.findByTipPreparat(tipPreparat); // Apelăm un repository customizat pentru a căuta după tip
     }
+
 
 }

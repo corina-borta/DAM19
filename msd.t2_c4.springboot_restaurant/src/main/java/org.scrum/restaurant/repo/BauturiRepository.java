@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BauturiRepository extends JpaRepository<Bauturi, Long> {
+public interface BauturiRepository extends JpaRepository<Bauturi, Integer> {
     List<Bauturi> findByVolum(double volum);
 
     List<Bauturi> findByAlcoolic(boolean alcoolic);

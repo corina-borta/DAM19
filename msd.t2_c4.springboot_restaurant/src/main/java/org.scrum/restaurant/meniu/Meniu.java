@@ -18,7 +18,7 @@ public class Meniu {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMeniu;
+    private Integer idMeniu;
 @NotNull
     private String numeMeniu;
 
@@ -37,7 +37,7 @@ public class Meniu {
         { System.out.println("Preparatul deja exista");}
     }
 
-    public Meniu(Long idMeniu, String numeMeniu, List<Preparat> preparate, List<ModificareMeniu> modificariMeniu, List<Comanda_Meniu> comenziMeniu) {
+    public Meniu(Integer idMeniu, String numeMeniu, List<Preparat> preparate, List<ModificareMeniu> modificariMeniu, List<Comanda_Meniu> comenziMeniu) {
         this.idMeniu = idMeniu;
         this.numeMeniu = numeMeniu;
         this.preparate = preparate;

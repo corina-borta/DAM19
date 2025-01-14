@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.scrum.restaurant.management.Comenzi;
 import org.scrum.restaurant.repo.ComenziRepository;
-import org.scrum.restaurant.restservice.ComenziRest;
+import org.scrum.restaurant.controller.ComenziRest;
 import org.scrum.restaurant.management.StatusComanda; // Import pentru StatusComanda
 import org.scrum.restaurant.management.MetodaPlata; // Import pentru MetodaPlata
 import org.scrum.restaurant.management.StatusPlata; // Import pentru StatusPlata
