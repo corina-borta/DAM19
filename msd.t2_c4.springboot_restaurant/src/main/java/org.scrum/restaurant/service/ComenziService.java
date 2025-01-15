@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import org.scrum.restaurant.management.StatusComanda;
 
 @Service
 public class ComenziService {
@@ -36,6 +37,8 @@ public class ComenziService {
 
     // Găsește comenzile după status
     public List<Comenzi> getComenziByStatus(String status) {
-        return comenziRepository.findByStatus(status);
+        StatusComanda statusEnum = StatusComanda.valueOf(status); // Convertire
+        return comenziRepository.findByStatus(statusEnum);
     }
+
 }

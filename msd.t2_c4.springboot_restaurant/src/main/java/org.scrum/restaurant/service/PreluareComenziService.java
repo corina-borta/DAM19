@@ -27,12 +27,12 @@ public class PreluareComenziService {
 
     // Găsește toate comenzile preluate de un angajat
     public List<Preluare_Comenzi> getPreluariByAngajatId(Long angajatId) {
-        return preluareComenziRepository.findByAngajat_Id(angajatId);
+        return preluareComenziRepository.findByAngajat_IdAngajat(angajatId);
     }
 
     // Găsește toate comenzile preluate de un client
     public List<Preluare_Comenzi> getPreluariByClientId(Long clientId) {
-        return preluareComenziRepository.findByClient_Id(clientId);
+        return preluareComenziRepository.findByClient_IdClient(clientId);
     }
 
     // Găsește toate comenzile preluate într-un interval de timp

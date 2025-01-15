@@ -1,21 +1,26 @@
 package org.scrum.restaurant.meniu;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.scrum.restaurant.persoane.Angajat;
 
 import java.time.LocalDateTime;
-@Entity
-@NoArgsConstructor
+
 @Data
+@NoArgsConstructor
+@Entity
 public class ModificareMeniu {
-    @Id @NotNull
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotNull
     private LocalDateTime dataModificarii;
+
+    @NotNull
     private String descriereModificare;
 
     @ManyToOne
@@ -26,17 +31,12 @@ public class ModificareMeniu {
     @JoinColumn(name = "meniu_id", nullable = false)
     private Meniu meniu;
 
-    public ModificareMeniu(Angajat angajat, Meniu meniu, LocalDateTime now, String descriere) {
-    }
-
-    
-    /*public ModificareMeniu(Integer id, LocalDateTime dataModificarii, String descriereModificare, Angajat angajat, Meniu meniu) {
-        this.id = id;
-        this.dataModificarii = dataModificarii;
-        this.descriereModificare = descriereModificare;
+    // Constructor complet pentru utilizare în servicii și alte componente
+    public ModificareMeniu(Angajat angajat, Meniu meniu, LocalDateTime dataModificarii, String descriereModificare) {
         this.angajat = angajat;
         this.meniu = meniu;
-    }*/
-
-
+        this.dataModificarii = dataModificarii;
+        this.descriereModificare = descriereModificare;
+    }
 }
+

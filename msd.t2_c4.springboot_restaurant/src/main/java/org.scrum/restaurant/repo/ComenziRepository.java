@@ -22,8 +22,5 @@ public interface ComenziRepository extends JpaRepository<Comenzi, Integer> {
 
     // Găsește comenzile care au suma totală mai mare decât o anumită valoare
     List<Comenzi> findByTotalComandaGreaterThanEqual(Double total);
-
-    // Adaugă orice metodă personalizată ai nevoie, cum ar fi:
-    List<Comenzi> findByStatus(String status); // doar dacă e necesar
 }
 

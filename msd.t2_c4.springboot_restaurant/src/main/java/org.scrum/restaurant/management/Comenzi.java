@@ -10,20 +10,29 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-
-@Data // Creează automat getter, setter, toString, equals și hashCode
-    @NoArgsConstructor // Creează un constructor fără parametri
-   @Entity // Specifică faptul că această clasă reprezintă o entitate în baza de date
-    public class Comenzi {
+@Data
+@NoArgsConstructor
+@Entity
+public class Comenzi {
     @EqualsAndHashCode.Include
-    @Id @Min(1)  @NotNull
+    @Id
+    @Min(1)
+    @NotNull
     @GeneratedValue
     private Integer idComanda;
+
     private String numarMasa;
     private Date dataComenzii;
+
+    @Enumerated(EnumType.STRING)
     private StatusComanda status;
+
+    @Enumerated(EnumType.STRING)
     private MetodaPlata metodaPlata;
+
+    @Enumerated(EnumType.STRING)
     private StatusPlata statusPlata;
+
     private BigDecimal totalComanda;
 
     @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -43,6 +52,7 @@ import java.util.List;
         this.totalComanda = totalComanda;
     }
 
+    // Getter și Setter pentru MetodaPlata
     public MetodaPlata getMetodaPlata() {
         return metodaPlata;
     }
@@ -51,12 +61,22 @@ import java.util.List;
         this.metodaPlata = metodaPlata;
     }
 
+    // Getter și Setter pentru StatusPlata
     public StatusPlata getStatusPlata() {
         return statusPlata;
     }
 
     public void setStatusPlata(StatusPlata statusPlata) {
         this.statusPlata = statusPlata;
+    }
+
+    // Getter și Setter pentru IdComanda (Adăugat)
+    public Integer getIdComanda() {
+        return idComanda;
+    }
+
+    public void setIdComanda(Integer idComanda) {
+        this.idComanda = idComanda;
     }
 }
 

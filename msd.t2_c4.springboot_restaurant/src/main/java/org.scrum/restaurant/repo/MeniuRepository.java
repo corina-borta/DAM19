@@ -9,10 +9,11 @@ import java.util.List;
 @Repository
 public interface MeniuRepository extends JpaRepository<Meniu, Integer> {
 
+    // Găsește meniurile care conțin un preparat specific
+    List<Meniu> findByPreparate_IdPreparat(Integer idPreparat);
+
+    // Găsește meniurile după numele lor
     List<Meniu> findByNumeMeniu(String numeMeniu);
 
-    // Găsește meniuri care conțin un anumit preparat
-    List<Meniu> findByPreparateList_IdPreparat(Integer idPreparat);
-
-
+    // Alte metode personalizate pot fi adăugate aici
 }

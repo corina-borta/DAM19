@@ -2,9 +2,12 @@ package org.scrum.restaurant.controller;
 
 import jakarta.transaction.Transactional;
 import org.scrum.restaurant.management.Comenzi;
+import org.scrum.restaurant.management.StatusComanda;
 import org.scrum.restaurant.repo.ComenziRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
 import java.util.List;
@@ -14,10 +17,15 @@ import java.util.logging.Logger;
 @RequestMapping("/rest/service/comenzi")
 @Transactional
 public class ComenziRest {
-    private static Logger logger = Logger.getLogger(ComenziRest.class.getName());
+
+    private static final Logger logger = Logger.getLogger(ComenziRest.class.getName());
+
+    private final ComenziRepository comenziRepository;
 
     @Autowired
-    private ComenziRepository comenziRepository;
+    public ComenziRest(ComenziRepository comenziRepository) {
+        this.comenziRepository = comenziRepository;
+    }
 
     @PostMapping("/create")
     @ResponseBody
@@ -29,8 +37,14 @@ public class ComenziRest {
     @GetMapping("/findByStatus/{status}")
     @ResponseBody
     public List<Comenzi> getComenziByStatus(@PathVariable("status") String status) {
-        logger.info("Finding orders with status: " + status);
-        return comenziRepository.findByStatus(status);
+        StatusComanda statusEnum;
+        try {
+            statusEnum = StatusComanda.valueOf(status); // Conversie din String în Enum
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid status: " + status);
+        }
+        logger.info("Finding orders with status: " + statusEnum);
+        return comenziRepository.findByStatus(statusEnum);
     }
 
     @GetMapping("/findByDateRange")

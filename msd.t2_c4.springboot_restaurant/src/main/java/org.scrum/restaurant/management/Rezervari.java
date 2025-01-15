@@ -24,7 +24,9 @@ public class Rezervari {
     @Min(1)
     private Integer numarPersoane;
     private Date dataRezervare;
+    @Enumerated(EnumType.STRING)
     private StatusRezervare statusRezervare;
+    @Enumerated(EnumType.STRING)
     private TipMasa tipMasa;
 
     @ManyToOne
