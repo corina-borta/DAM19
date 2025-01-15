@@ -1,0 +1,11 @@
+2025-01-15 09:59:38.966289+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]CLIENTI"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT"; SQL statement:
+CLIENTI [42001-224]
+2025-01-15 10:10:33.877118+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM COMANDA_MENIU COMANDA_MENIU [*]CLIENTI"; SQL statement:
+SELECT * FROM COMANDA_MENIU COMANDA_MENIU CLIENTI [42000-224]
+2025-01-15 10:18:52.156246+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ANGAJATI (SALARIU, EMAIL, NUME_ANGAJAT, ROL_ANGAJAT, TELEFON)\000d\000aVALUES\000d\000a  (3000, 'john.doe@example.com', 'John Doe', 'Bucatar', '0700123456'),[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO ANGAJATI (SALARIU, EMAIL, NUME_ANGAJAT, ROL_ANGAJAT, TELEFON)
+VALUES
+  (3000, 'john.doe@example.com', 'John Doe', 'Bucatar', '0700123456'), [42001-224]
